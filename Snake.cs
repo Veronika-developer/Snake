@@ -8,7 +8,6 @@ namespace Snake
     class Snake : Figure
     {
         Direction direction;
-
         public Snake(Point tail, int lenght, Direction _direction)
         {
             direction = _direction;

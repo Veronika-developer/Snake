@@ -8,6 +8,7 @@ namespace Snake
     {
         public VerticalLine(int yTop, int yDown, int x, char sym)
         {
+
             plist = new List<Point>();
             for (int y = yTop; y <= yDown; y++)
             {

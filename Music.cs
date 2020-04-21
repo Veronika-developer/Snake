@@ -30,7 +30,6 @@ namespace Snake_game
             eatsound.Volume = 1000;
             eatsound.Play();
         }
-
         public void GameOver()
         {
             var gameover = new System.Windows.Media.MediaPlayer();

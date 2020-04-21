@@ -8,6 +8,7 @@ namespace Snake
     {
         public HorizontalLine(int xLeft, int xRight, int y, char sym)
         {
+
             plist = new List<Point>();
             for (int x = xLeft; x <= xRight; x++)
             {

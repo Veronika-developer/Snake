@@ -66,7 +66,6 @@ namespace Snake
 			Console.ReadLine();
 		}
 
-
 		static void WriteGameOver()
 		{
 			int xOffset = 40;

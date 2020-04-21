@@ -11,7 +11,6 @@ namespace Snake_game
     {
         public SaveFiles()
         {
-
         }
 
         public void to_file(string x)

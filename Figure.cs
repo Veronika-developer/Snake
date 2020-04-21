@@ -15,7 +15,6 @@ namespace Snake
                 p.Draw();
             }
         }
-
         internal bool IsHit(Figure figure)
         {
             foreach (var p in plist)
