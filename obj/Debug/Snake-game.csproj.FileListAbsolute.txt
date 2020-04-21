@@ -1,0 +1,6 @@
+C:\Users\morgo\source\repos\Snake-game\bin\Debug\Snake-game.exe.config
+C:\Users\morgo\source\repos\Snake-game\bin\Debug\Snake-game.exe
+C:\Users\morgo\source\repos\Snake-game\bin\Debug\Snake-game.pdb
+C:\Users\morgo\source\repos\Snake-game\obj\Debug\Snake-game.csprojAssemblyReference.cache
+C:\Users\morgo\source\repos\Snake-game\obj\Debug\Snake-game.exe
+C:\Users\morgo\source\repos\Snake-game\obj\Debug\Snake-game.pdb
