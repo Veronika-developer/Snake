@@ -63,7 +63,6 @@ namespace Snake
 			}
 			music.GameOver();
 			WriteGameOver();
-
 			Console.ReadLine();
 		}
 
@@ -95,6 +94,5 @@ namespace Snake
 			Console.SetCursorPosition(xOffset, yOffset);
 			Console.WriteLine(text);
 		}
-
 	}
 }
