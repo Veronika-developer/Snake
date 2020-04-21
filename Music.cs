@@ -18,7 +18,7 @@ namespace Snake_game
             var mainMusic = new System.Windows.Media.MediaPlayer();
             string url = @"C:\Users\morgo\source\repos\Snake-game\Music\Main.mp3";
             mainMusic.Open(new Uri(url, UriKind.Relative));
-            mainMusic.Volume = 1;
+            mainMusic.Volume = 15;
             mainMusic.Play();
         }
 
@@ -27,7 +27,7 @@ namespace Snake_game
             var eatsound = new System.Windows.Media.MediaPlayer();
             string url = @"C:\Users\morgo\source\repos\Snake-game\Music\snakeatt.mp3";
             eatsound.Open(new Uri(url, UriKind.Relative));
-            eatsound.Volume = 1000;
+            eatsound.Volume = 100;
             eatsound.Play();
         }
         public void GameOver()
@@ -35,7 +35,7 @@ namespace Snake_game
             var gameover = new System.Windows.Media.MediaPlayer();
             string url = @"C:\Users\morgo\source\repos\Snake-game\Music\GameOver.mp3";
             gameover.Open(new Uri(url, UriKind.Relative));
-            gameover.Volume = 1000;
+            gameover.Volume = 100;
             gameover.Play();
         }
     }
