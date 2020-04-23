@@ -13,16 +13,16 @@ namespace Snake_game
         {
         }
 
-        public void to_file(string x)
+        public void to_file(string x, int y)
         {
             StreamWriter to_file = new StreamWriter(@"C:\Users\morgo\source\repos\Snake-game\Users.txt", true);
-            to_file.WriteLine(x);
+            to_file.WriteLine(x+" "+y);
             to_file.Close();
         }
 
         public void from_file()
         {
-            StreamReader from_file = new StreamReader("Users.txt");
+            StreamReader from_file = new StreamReader(@"C:\Users\morgo\source\repos\Snake-game\Users.txt", true);
             string text = from_file.ReadToEnd();
             Console.WriteLine(text);
             from_file.Close();

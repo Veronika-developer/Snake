@@ -62,14 +62,17 @@ namespace Snake
 				}
 			}
 			music.GameOver();
-			WriteGameOver();
+			WriteGameOver(o4ki);
 			Console.ReadLine();
 		}
 
-		static void WriteGameOver()
+		static void WriteGameOver(int x)
 		{
 			int xOffset = 40;
 			int yOffset = 8;
+
+			SaveFiles saveFiles = new SaveFiles();
+
 			Console.ForegroundColor = ConsoleColor.Red;
 			Console.SetCursorPosition(xOffset, yOffset++);
 			WriteText("============================", xOffset, yOffset++);
@@ -77,15 +80,23 @@ namespace Snake
 			yOffset++;
 			WriteText("Введите свое имя:", xOffset + 2, yOffset++);
 			yOffset++;
+			StreamReader from_file = new StreamReader(@"C:\Users\morgo\source\repos\Snake-game\Users.txt", true);
+			for (int i = 0; i <= 5; i++)
+			{
+				string text = from_file.ReadToEnd();
+				Console.WriteLine(text);
+				yOffset++;
+			}
+			from_file.Close();
 			WriteText("Автор: Veronika Jefimova", xOffset + 2, yOffset++);
 			WriteText("Группа: TARpv19", xOffset + 2, yOffset++);
 			WriteText("============================", xOffset, yOffset++);
 
-			Console.SetCursorPosition(xOffset + 2, yOffset - 4);
+			Console.SetCursorPosition(xOffset + 2, yOffset - 9);
 			string NameU = Console.ReadLine();
 
-			SaveFiles saveFiles = new SaveFiles();
-			saveFiles.to_file(NameU);
+			
+			saveFiles.to_file(NameU, x);
 		}
 
 		static void WriteText(String text, int xOffset, int yOffset)
@@ -93,5 +104,6 @@ namespace Snake
 			Console.SetCursorPosition(xOffset, yOffset);
 			Console.WriteLine(text);
 		}
+
 	}
 }
