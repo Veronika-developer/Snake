@@ -13,6 +13,26 @@ namespace Snake
 	{
 		static void Main(string[] args)
 		{
+			string name;
+			while (true)
+			{
+				Console.Write("Введите свое имя: ");
+				name = Console.ReadLine();
+				if (name.Length < 3)
+				{
+					Console.Clear();
+					Console.WriteLine("Имя должно быть больше 3 символа.");
+					continue;
+				}
+				else
+				{
+					Console.Clear();
+					break;
+				}
+			}
+
+			Console.SetWindowSize(100, 30);
+
 			Music music = new Music();
 			music.MainMusic();
 
@@ -63,6 +83,10 @@ namespace Snake
 			}
 			music.GameOver();
 			WriteGameOver(o4ki);
+			SaveFiles saveFiles = new SaveFiles();
+
+			saveFiles.to_file(name,o4ki);
+
 			Console.ReadLine();
 		}
 
@@ -71,32 +95,22 @@ namespace Snake
 			int xOffset = 40;
 			int yOffset = 8;
 
-			SaveFiles saveFiles = new SaveFiles();
-
 			Console.ForegroundColor = ConsoleColor.Red;
 			Console.SetCursorPosition(xOffset, yOffset++);
 			WriteText("============================", xOffset, yOffset++);
 			WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
 			yOffset++;
-			WriteText("Введите свое имя:", xOffset + 2, yOffset++);
-			yOffset++;
 			StreamReader from_file = new StreamReader(@"C:\Users\morgo\source\repos\Snake-game\Users.txt", true);
 			for (int i = 0; i <= 5; i++)
 			{
 				string text = from_file.ReadToEnd();
+				Console.SetCursorPosition(xOffset + 1, yOffset++);
 				Console.WriteLine(text);
-				yOffset++;
 			}
 			from_file.Close();
 			WriteText("Автор: Veronika Jefimova", xOffset + 2, yOffset++);
 			WriteText("Группа: TARpv19", xOffset + 2, yOffset++);
 			WriteText("============================", xOffset, yOffset++);
-
-			Console.SetCursorPosition(xOffset + 2, yOffset - 9);
-			string NameU = Console.ReadLine();
-
-			
-			saveFiles.to_file(NameU, x);
 		}
 
 		static void WriteText(String text, int xOffset, int yOffset)

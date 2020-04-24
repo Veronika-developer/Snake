@@ -16,7 +16,7 @@ namespace Snake_game
         public void to_file(string x, int y)
         {
             StreamWriter to_file = new StreamWriter(@"C:\Users\morgo\source\repos\Snake-game\Users.txt", true);
-            to_file.WriteLine(x+" "+y);
+            to_file.WriteLine("Имя:" + x + " ¦ Очки: "+y);
             to_file.Close();
         }
 
