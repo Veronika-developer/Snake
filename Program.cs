@@ -47,11 +47,13 @@ namespace Snake
 			Point food = foodCreator.CreateFood();
 			food.Draw();
 
+			Text text = new Text();
+
 			int xOffsetO4ki = 40;
 			int yOffsetO4ki = 26;
 
 			int o4ki = 0;
-			WriteText("Баллы:"+o4ki, xOffsetO4ki, yOffsetO4ki);
+			text.WriteText("Баллы:"+o4ki, xOffsetO4ki, yOffsetO4ki);
 
 			while (true)
 			{
@@ -66,7 +68,7 @@ namespace Snake
 					food.Draw();
 					o4ki++;
 					Console.SetCursorPosition(xOffsetO4ki, yOffsetO4ki);
-					WriteText("Баллы:" + o4ki, xOffsetO4ki, yOffsetO4ki);
+					text.WriteText("Баллы:" + o4ki, xOffsetO4ki, yOffsetO4ki);
 
 				}
 				else
@@ -82,41 +84,14 @@ namespace Snake
 				}
 			}
 			music.GameOver();
-			WriteGameOver(o4ki);
-			SaveFiles saveFiles = new SaveFiles();
 
+			GameOver game = new GameOver();
+			game.WriteGameOver(o4ki);
+
+			SaveFiles saveFiles = new SaveFiles();
 			saveFiles.to_file(name,o4ki);
 
 			Console.ReadLine();
-		}
-
-		static void WriteGameOver(int x)
-		{
-			int xOffset = 40;
-			int yOffset = 8;
-
-			Console.ForegroundColor = ConsoleColor.Red;
-			Console.SetCursorPosition(xOffset, yOffset++);
-			WriteText("============================", xOffset, yOffset++);
-			WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
-			yOffset++;
-			StreamReader from_file = new StreamReader(@"C:\Users\morgo\source\repos\Snake-game\Users.txt", true);
-			for (int i = 0; i <= 5; i++)
-			{
-				string text = from_file.ReadToEnd();
-				Console.SetCursorPosition(xOffset + 1, yOffset++);
-				Console.WriteLine(text);
-			}
-			from_file.Close();
-			WriteText("Автор: Veronika Jefimova", xOffset + 2, yOffset++);
-			WriteText("Группа: TARpv19", xOffset + 2, yOffset++);
-			WriteText("============================", xOffset, yOffset++);
-		}
-
-		static void WriteText(String text, int xOffset, int yOffset)
-		{
-			Console.SetCursorPosition(xOffset, yOffset);
-			Console.WriteLine(text);
 		}
 
 	}
