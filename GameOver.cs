@@ -29,11 +29,12 @@ namespace Snake_game
 			StreamReader from_file = new StreamReader(@"C:\Users\morgo\source\repos\Snake-game\Users.txt", true);
 			for (int i = 0; i <= 5; i++)
 			{
-				string textt = from_file.ReadToEnd();
-				Console.SetCursorPosition(xOffset + 1, yOffset++);
+				string textt = from_file.ReadLine();
+				Console.SetCursorPosition(xOffset, yOffset++);
 				Console.WriteLine(textt);
 			}
 			from_file.Close();
+			yOffset++;
 			text.WriteText("Автор: Veronika Jefimova", xOffset + 2, yOffset++);
 			text.WriteText("Группа: TARpv19", xOffset + 2, yOffset++);
 			text.WriteText("============================", xOffset, yOffset++);

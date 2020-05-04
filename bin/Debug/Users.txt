@@ -1,9 +1,2 @@
-Veronika
-Veronika
-Veronika
-Veronika
-Veronika
-Veronika
-Veronika
-Veronika
-Veronika
+[Name:1]
+[Name:0]
