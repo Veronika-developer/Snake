@@ -46,7 +46,7 @@ namespace Snake
 			Snake snake = new Snake(p, 4, Direction.RIGHT);
 			snake.Draw();
 
-			FoodCreator foodCreator = new FoodCreator(109, 24, '$');
+			FoodCreator foodCreator = new FoodCreator(100, 24);
 			Point food = foodCreator.CreateFood();
 			food.Draw();
 
@@ -76,8 +76,10 @@ namespace Snake
 				}
 				if (snake.Eat(food))
 				{
+
 					music.EatSound();
-					food = foodCreator.CreateFood();
+					FoodCreator food1 = new FoodCreator(100, 24);
+					food = food1.CreateFood();
 					food.FoodDraw();
 					o4ki++;
 					Console.SetCursorPosition(xOffsetO4ki, yOffsetO4ki);

@@ -11,12 +11,18 @@ namespace Snake
         int mapHeight;
         char sym;
 
-        Random random = new Random();
-        public FoodCreator(int mapWidht, int mapHeight, char sym)
+        static string symbols = "#¤%&@£$";
+        static Random random = new Random();
+        static char GetRandomChar()
+        {
+            var index = random.Next(symbols.Length);
+            return symbols[index];
+        }
+        public FoodCreator(int mapWidht, int mapHeight)
         {
             this.mapWidht = mapWidht;
             this.mapHeight = mapHeight;
-            this.sym = sym;
+            this.sym = GetRandomChar();
         }
 
         public Point CreateFood()
