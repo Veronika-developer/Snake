@@ -22,7 +22,7 @@ namespace Snake
         {
             this.mapWidht = mapWidht;
             this.mapHeight = mapHeight;
-            this.sym = GetRandomChar();
+            this.sym = GetRandomChar;
         }
 
         public Point CreateFood()
