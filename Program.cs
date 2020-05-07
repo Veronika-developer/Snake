@@ -8,6 +8,7 @@ namespace Snake
 {
 	class Program
 	{
+		static TimeSpan ts;
 		static void Main(string[] args)
 		{
 			Console.SetWindowSize(102, 30);
@@ -68,15 +69,14 @@ namespace Snake
 			{
 				Console.SetCursorPosition(xOffsetO4ki, 27);
 				TimeSpan ts = stopWatch.Elapsed; // структура для работы с временем
-				Console.WriteLine($"{ts.Minutes:00}:{ts.Seconds:00}:{ts.Milliseconds:00}"); // вывод секунд и милисекунд
-
+				Console.WriteLine($"{ts.Minutes:00}:{ts.Seconds:00}"); // вывод секунд и минут
 				if (walls.IsHit(snake) || snake.IsHitTail())
 				{
+					stopWatch.Stop();
 					break;
 				}
 				if (snake.Eat(food))
 				{
-
 					music.EatSound();
 					FoodCreator food1 = new FoodCreator(100, 24);
 					food = food1.CreateFood();
@@ -100,13 +100,18 @@ namespace Snake
 					snake.HandleKey(key.Key);
 				}
 			}
+
+			Console.WriteLine(stopWatch.ElapsedTicks);
+
+			var time = stopWatch.Elapsed;
+
 			music.GameOver();
 
 			GameOver game = new GameOver();
 			game.WriteGameOver(o4ki);
 
 			SaveFiles saveFiles = new SaveFiles();
-			saveFiles.to_file(name,o4ki,size);
+			saveFiles.to_file(name,o4ki,size, time);
 
 			ConsoleKeyInfo btn = Console.ReadKey();
 			if (btn.Key == ConsoleKey.Enter)
